@@ -52,9 +52,15 @@ class TestScript(unittest.TestCase):
         self.assertEqual(self.file_action.choosing_an_action('Добавить в список', 'салат -- 30'),
                          'Значение добавлено!!')
 
+    # Добавляем слово указывая 'actions'
+    def test_change_considering_action(self):
+        self.assertEqual(
+            self.file_action.choosing_an_action('Изменить запись в списке', 'салат -- 30', 'салат - 60'),
+            'Значение обновлено!!')
+
     # Изменяем слово или предложение
     def test_change_file(self):
-        self.assertEqual(self.file_action.change_file('салат -- 30', 'слива - 90'), 'Значение обновлено!!')
+        self.assertEqual(self.file_action.change_file('салат - 60', 'слива - 90'), 'Значение обновлено!!')
 
     # Удаляем слово или предложение
     def test_delete_text(self):
